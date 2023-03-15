@@ -30,7 +30,7 @@ const Anchor = styled.a`
 
 	&:hover {
 		cursor: pointer;
-		color: ${(props) => props.theme.colors.grayLight};
+		color: ${(props) => props.theme.whiteColors.grayLight};
 
 		&::after {
 			width: 75%;
@@ -41,7 +41,7 @@ const Anchor = styled.a`
 		content: "";
 		margin: auto;
 		height: 0.1rem;
-		background-color: ${(props) => props.theme.colors.blue200};
+		background-color: ${(props) => props.theme.whiteColors.blue200};
 		transition: width 0.4s;
 		width: 0;
 	}

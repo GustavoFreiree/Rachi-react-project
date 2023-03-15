@@ -20,7 +20,7 @@ import googlePlay from "../../assets/google-play.svg";
 
 const MainSection = styled.main`
 	& section:nth-child(odd) {
-		background-color: ${(props) => props.theme.colors.white200};
+		background-color: ${(props) => props.theme.whiteColors.white200};
 	}
 `;
 

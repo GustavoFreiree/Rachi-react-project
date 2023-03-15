@@ -7,14 +7,14 @@ const InputContainer = styled.input`
 	padding: 1rem;
 	width: 100%;
 
-	color: ${(props) => props.theme.colors.gray200};
-	border-bottom: 1px solid ${(props) => props.theme.colors.gray200};
+	color: ${(props) => props.theme.whiteColors.gray200};
+	border-bottom: 1px solid ${(props) => props.theme.whiteColors.gray200};
 	max-width: ${(props) => (props.maxWidth ? props.maxWidth : "30rem")};
 	transition: border-bottom 0.3s;
 
 	:focus {
 		outline: none;
-		border-bottom: 1px solid ${(props) => props.theme.colors.blue200};
+		border-bottom: 1px solid ${(props) => props.theme.whiteColors.blue200};
 	}
 `;
 

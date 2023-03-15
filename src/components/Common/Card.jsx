@@ -31,12 +31,12 @@ const CardBox = styled.div`
 	max-width: 37rem;
 	background-color: ${(props) =>
 		props.emphasis
-			? props.theme.colors.gray200
-			: props.theme.colors.white200};
+			? props.theme.whiteColors.gray200
+			: props.theme.whiteColors.white200};
 	color: ${(props) =>
 		props.emphasis
-			? props.theme.colors.white200
-			: props.theme.colors.gray200};
+			? props.theme.whiteColors.white200
+			: props.theme.whiteColors.gray200};
 	padding: 3.5rem;
 	border-radius: 8px;
 	gap: 6rem;
@@ -71,7 +71,7 @@ export const Card = (props) => {
 						<Text.Block
 							textAlign="center"
 							gap="5rem"
-							theme="dark"
+							blockTheme={emphasis ? "darkColors" : ""}
 						>
 							<Text.Title fontSize="2.4rem">
 								{titleName}
