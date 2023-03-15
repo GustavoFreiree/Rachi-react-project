@@ -1,6 +1,29 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Text from "./Text";
 import { Button } from "./Button";
+
+const animation = {
+	time: ".4s",
+	values: { from: "0", to: "-4px" },
+};
+
+const elevate = keyframes`
+	0% {
+		transform: translateY(${animation.values.from})
+	}
+	100% {
+		transform: translateY(${animation.values.to});
+	}
+`;
+
+const lower = keyframes`
+	0% {
+		transform: translateY(${animation.values.to})
+	}
+	100% {
+		transform: translateY(${animation.values.from});
+	}
+`;
 
 const CardBox = styled.div`
 	display: flex;
@@ -10,12 +33,23 @@ const CardBox = styled.div`
 		props.emphasis
 			? props.theme.colors.gray200
 			: props.theme.colors.white200};
+	color: ${(props) =>
+		props.emphasis
+			? props.theme.colors.white200
+			: props.theme.colors.gray200};
 	padding: 3.5rem;
 	border-radius: 8px;
 	gap: 6rem;
-	transition: filter 0.5s;
-	:hover {
+	transition: filter ${animation.time};
+
+	&:hover {
 		filter: drop-shadow(0px 0px 75px rgba(0, 149, 255, 0.315));
+		animation: ${elevate} ${animation.time} linear forwards;
+	}
+
+	&:not(:hover) {
+		filter: none;
+		animation: ${lower} ${animation.time} linear forwards;
 	}
 `;
 
@@ -31,10 +65,14 @@ export const Card = (props) => {
 	const { list } = props;
 	return (
 		<CardBoxContainer>
-			{list.map(({ titleName, emphasis }) => {
+			{list.map(({ titleName, value, emphasis }) => {
 				return (
 					<CardBox emphasis={emphasis} key={titleName}>
-						<Text.Block textAlign="center" gap="5rem">
+						<Text.Block
+							textAlign="center"
+							gap="5rem"
+							theme="dark"
+						>
 							<Text.Title fontSize="2.4rem">
 								{titleName}
 							</Text.Title>
@@ -46,7 +84,7 @@ export const Card = (props) => {
 									R$
 								</Text.Paragraph>
 								<Text.Paragraph fontSize="5rem">
-									70
+									{value}
 								</Text.Paragraph>
 								<Text.Paragraph alignSelf="end">
 									/Mês

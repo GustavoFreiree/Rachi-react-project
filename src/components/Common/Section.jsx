@@ -13,7 +13,6 @@ const WrapperContainer = styled.div`
 	background-position: center center;
 	background-size: auto auto;
 	width: 100%;
-	padding: 0 2.4rem;
 	${(props) =>
 		props.displayFlex &&
 		`

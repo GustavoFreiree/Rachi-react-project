@@ -5,7 +5,7 @@ import { Wrapper } from "./Section";
 const HeaderContainer = styled.header`
 	display: flex;
 	justify-content: center;
-	padding: 2.5rem 0;
+	padding: 2.5rem 3rem;
 `;
 
 const Logo = styled.img`
@@ -23,11 +23,27 @@ const Navbar = styled.nav`
 
 const Anchor = styled.a`
 	font-size: 1.8rem;
-	transition: color 0.3s;
+	transition: color 0.4s;
+
+	display: flex;
+	flex-flow: column;
 
 	&:hover {
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.grayLight};
+
+		&::after {
+			width: 75%;
+		}
+	}
+
+	&::after {
+		content: "";
+		margin: auto;
+		height: 0.1rem;
+		background-color: ${(props) => props.theme.colors.blue200};
+		transition: width 0.4s;
+		width: 0;
 	}
 `;
 
