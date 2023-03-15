@@ -14,18 +14,17 @@ const GlobalStyle = createGlobalStyle`
 	html {
 		font-size: 62.5%;
 		font-family: "Roboto", sans-serif;
-		transition: font-size .3s;
 	}
 
 	body {
-		background-color: ${(props) => props.theme.colors.white};
-		color: ${(props) => props.theme.colors.gray};
+		background-color: ${(props) => props.theme.whiteColors.white};
+		color: ${(props) => props.theme.whiteColors.gray};
 		-webkit-font-smoothing: antialiased;
 	}
 
 	@media screen and (max-width:1000px) {
 		html {
-			font-size: 45%;
+			font-size: 55%;
 		}
 	}
 `;

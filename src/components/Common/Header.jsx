@@ -5,7 +5,7 @@ import { Wrapper } from "./Section";
 const HeaderContainer = styled.header`
 	display: flex;
 	justify-content: center;
-	padding: 1.5rem 0;
+	padding: 2.5rem 3rem;
 `;
 
 const Logo = styled.img`
@@ -23,24 +23,64 @@ const Navbar = styled.nav`
 
 const Anchor = styled.a`
 	font-size: 1.8rem;
-	transition: color 0.3s;
+	transition: color 0.4s;
+
+	display: flex;
+	flex-flow: column;
 
 	&:hover {
 		cursor: pointer;
-		color: ${(props) => props.theme.colors.grayLight};
+		color: ${(props) => props.theme.whiteColors.grayLight};
+
+		&::after {
+			width: 75%;
+		}
+	}
+
+	&::after {
+		content: "";
+		margin: auto;
+		height: 0.1rem;
+		background-color: ${(props) => props.theme.whiteColors.blue200};
+		transition: width 0.4s;
+		width: 0;
 	}
 `;
 
-export const Header = () => {
+export const Header = (props) => {
+	const { navItems } = props;
+	const scrollToSection = (ref) => {
+		ref.current.scrollIntoView({ behavior: "smooth" });
+	};
 	return (
 		<HeaderContainer>
 			<Wrapper displayFlex justifyContent="space-between">
 				<Logo src={logo} alt="" />
 				<Navbar>
-					<Anchor>Funcionalidades</Anchor>
-					<Anchor>App</Anchor>
-					<Anchor>Planos</Anchor>
-					<Anchor>Contato</Anchor>
+					<Anchor
+						onClick={() =>
+							scrollToSection(navItems.functionalitiesRef)
+						}
+					>
+						Funcionalidades
+					</Anchor>
+					<Anchor
+						onClick={() => scrollToSection(navItems.appRef)}
+					>
+						App
+					</Anchor>
+					<Anchor
+						onClick={() => scrollToSection(navItems.plansRef)}
+					>
+						Planos
+					</Anchor>
+					<Anchor
+						onClick={() =>
+							scrollToSection(navItems.contactRef)
+						}
+					>
+						Contato
+					</Anchor>
 				</Navbar>
 			</Wrapper>
 		</HeaderContainer>

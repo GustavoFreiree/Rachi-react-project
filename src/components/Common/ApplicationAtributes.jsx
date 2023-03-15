@@ -4,6 +4,7 @@ const ApplicationAtributesBox = styled.div`
 	display: flex;
 	flex-flow: column;
 	align-items: center;
+	transition: scale 0.3s, filter 0.3s;
 
 	& > img {
 		width: 5rem;
@@ -17,6 +18,18 @@ const ApplicationAtributesBox = styled.div`
 	& > span {
 		max-width: 20rem;
 		text-align: center;
+	}
+
+	:hover {
+		scale: 1.05;
+		filter: drop-shadow(5px 0px 15px rgb(0, 149, 255));
+	}
+
+	@media screen and (max-width: 1000px) {
+		:hover {
+			scale: 1;
+			filter: none;
+		}
 	}
 `;
 
@@ -53,6 +66,7 @@ export const ApplicationAtributesContainer = (props) => {
 						imgSrc={imgSrc}
 						title={title}
 						desc={desc}
+						key={title}
 					/>
 				);
 			})}

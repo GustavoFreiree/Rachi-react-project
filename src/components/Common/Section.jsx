@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 
 const SectionContainer = styled.section`
@@ -8,8 +9,10 @@ const SectionContainer = styled.section`
 
 const WrapperContainer = styled.div`
 	max-width: ${(props) => props.theme.spacing.sectionPadding};
+	background-image: url(${(props) => props.bgImage});
+	background-position: center center;
+	background-size: auto auto;
 	width: 100%;
-	padding: 0 2.4rem;
 	${(props) =>
 		props.displayFlex &&
 		`
@@ -28,11 +31,11 @@ export const Wrapper = (props) => {
 	return <WrapperContainer {...rest}>{children}</WrapperContainer>;
 };
 
-export const Section = (props) => {
+export const Section = forwardRef((props, ref) => {
 	const { children, ...rest } = props;
 	return (
-		<SectionContainer>
+		<SectionContainer ref={ref}>
 			<WrapperContainer {...rest}>{children}</WrapperContainer>
 		</SectionContainer>
 	);
-};
+});

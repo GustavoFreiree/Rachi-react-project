@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { Header } from "./components/Common/Header";
 import { Home } from "./components/pages/home";
 function App() {
+	const [navItems, setNavItems] = useState({});
+	function handleNavItemsChange(newValue) {
+		setNavItems(newValue);
+	}
 	return (
 		<>
-			<Header />
-			<Home></Home>
+			<Header navItems={navItems} />
+			<Home setNavItems={handleNavItemsChange} />
 		</>
 	);
 }
